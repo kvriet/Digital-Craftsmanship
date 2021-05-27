@@ -1,11 +1,12 @@
 //Trying to code the smocking patterns
 
-int linelength = 10;
+int linelength = 45;
 int s = 0;
 boolean direction = true;
 
 void setup() {
-  size(1000, 500);  
+  //size(width, height);  
+  fullScreen();
   noLoop();
 }
 
@@ -31,9 +32,9 @@ void draw() {
       stripe1(i, linelength - s +n*2*linelength);
       stripe2(i + linelength + s, n*2*linelength);
     }
-    if (direction) s++;
-    else if (!direction) s--;
-    if (s >= 10) direction = false;
+    if (direction) s+= linelength/10;
+    else if (!direction) s-= linelength/10;
+    if (s >= linelength) direction = false;
     else if (s <= 0) direction = true;
     println(s);
   }
