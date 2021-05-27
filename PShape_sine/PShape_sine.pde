@@ -1,3 +1,4 @@
+
 int amplitude = 10;
 PShape squiggle;
 float angle = 0;
