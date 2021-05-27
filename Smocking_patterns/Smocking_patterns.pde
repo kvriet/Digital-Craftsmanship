@@ -2,9 +2,11 @@
 
 int linelength = 10;
 int s = 0;
+boolean direction = true;
 
 void setup() {
-  size(1000, 500);
+  size(1000, 500);  
+  noLoop();
 }
 
 void draw() {
@@ -23,14 +25,17 @@ void draw() {
   //  }
   //}
 
-
+  //mixing
   for (int i = 0; i<width; i+= 4*linelength) {
     for (int n = 0; n<height/linelength; n++) {
       stripe1(i, linelength - s +n*2*linelength);
       stripe2(i + linelength + s, n*2*linelength);
     }
-    s+=1;
-    if(s == 10) s = 9;
+    if (direction) s++;
+    else if (!direction) s--;
+    if (s >= 10) direction = false;
+    else if (s <= 0) direction = true;
+    println(s);
   }
 }
 
